@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "honor.pomodoro",
+  "name": "Pomodoro",
+  "version": "1.0.0",
+  "author": "honor",
+  "license": "MIT",
+  "description": "Focus and break timer with a countdown ring in the bar, a focus/break cycle, a daily completed count, and controls in a popup.",
+  "kinds": [
+    "bar-widget",
+    "service"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "barWidget": "Panel.qml",
+    "service": "Service.qml"
+  },
+  "barWidget": {
+    "displayName": "Pomodoro",
+    "description": "A focus/break timer: ring and countdown in the bar, controls and lengths in the popup.",
+    "category": "Time",
+    "aliases": [
+      "pomodoro",
+      "focus",
+      "break",
+      "timer"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "centerEnd",
+    "defaults": {
+      "focusMinutes": 25,
+      "shortBreakMinutes": 5,
+      "longBreakMinutes": 15,
+      "longBreakEvery": 4,
+      "autoStart": true,
+      "sound": true,
+      "notify": true,
+      "stayAwake": true
+    },
+    "schema": [
+      {
+        "key": "focusMinutes",
+        "type": "integer",
+        "label": "Focus (minutes)",
+        "min": 1,
+        "max": 180,
+        "step": 5,
+        "defaultValue": 25
+      },
+      {
+        "key": "shortBreakMinutes",
+        "type": "integer",
+        "label": "Short break (minutes)",
+        "min": 1,
+        "max": 60,
+        "step": 1,
+        "defaultValue": 5
+      },
+      {
+        "key": "longBreakMinutes",
+        "type": "integer",
+        "label": "Long break (minutes)",
+        "min": 1,
+        "max": 120,
+        "step": 5,
+        "defaultValue": 15
+      },
+      {
+        "key": "longBreakEvery",
+        "type": "integer",
+        "label": "Long break every (focus blocks)",
+        "min": 2,
+        "max": 12,
+        "step": 1,
+        "defaultValue": 4
+      },
+      {
+        "key": "autoStart",
+        "type": "boolean",
+        "label": "Auto-start the next phase",
+        "defaultValue": true,
+        "description": "Flow from focus into break and back without pressing anything."
+      },
+      {
+        "key": "sound",
+        "type": "boolean",
+        "label": "Sound on phase end",
+        "defaultValue": true
+      },
+      {
+        "key": "notify",
+        "type": "boolean",
+        "label": "Desktop notifications",
+        "defaultValue": true
+      },
+      {
+        "key": "stayAwake",
+        "type": "boolean",
+        "label": "Keep the screen awake while focusing",
+        "defaultValue": true,
+        "description": "Inhibits idle, the screensaver and the lock screen for the length of a focus block. A stay-awake you switched on yourself is left on."
+      }
+    ]
+  }
+}
